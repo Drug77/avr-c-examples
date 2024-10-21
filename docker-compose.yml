@@ -1,0 +1,11 @@
+services:
+  avr:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    devices:
+      - /dev/bus/usb:/dev/bus/usb  # Allow access to USB devices
+    working_dir: /app
+    command: make
