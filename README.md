@@ -81,4 +81,11 @@ avrdude -c usbtiny -p t85 -U lfuse:w:0xE2:m
 avrdude -c usbtiny -p t85 -U flash:w:blink.hex:i
 
 ## Compile pushbutton.c script
-make TARGET=pushbutton
+docker-compose exec avr make status
+docker-compose exec avr make TARGET=traffic_light
+docker-compose exec avr make TARGET=traffic_light flash
+
+## Read data from serial
+sudo chmod 666 /dev/ttyUSB0
+stty -F /dev/ttyUSB0 9600
+cat /dev/ttyUSB0

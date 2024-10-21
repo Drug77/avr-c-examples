@@ -6,6 +6,6 @@ services:
     volumes:
       - .:/app
     devices:
-      - /dev/bus/usb:/dev/bus/usb  # Allow access to USB devices
+      - "/dev/bus/usb/003/002:/dev/bus/usb/003/002"
+    privileged: true
     working_dir: /app
-    command: make

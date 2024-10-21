@@ -32,6 +32,10 @@ all: $(TARGET).hex
 flash: $(TARGET).hex
 	avrdude -c $(PROGRAMMER) -p $(MCU) -P $(PORT) -U flash:w:$(TARGET).hex:i
 
+# Command to check the microcontroller status
+status:
+	avrdude -c $(PROGRAMMER) -p $(MCU) -P $(PORT) -v
+
 # Clean up build files
 clean:
 	rm -f *.o *.elf *.hex

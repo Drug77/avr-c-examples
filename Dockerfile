@@ -17,4 +17,4 @@ WORKDIR /app
 COPY . /app
 
 # Default entry point
-CMD ["make"]
+CMD ["tail", "-f", "/dev/null"]
